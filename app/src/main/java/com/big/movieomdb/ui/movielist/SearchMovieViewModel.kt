@@ -1,4 +1,4 @@
-package com.big.movieomdb.ui.main
+package com.big.movieomdb.ui.movielist
 
 import androidx.lifecycle.ViewModel
 

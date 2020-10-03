@@ -3,7 +3,8 @@ package com.big.movieomdb.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.big.movieomdb.R
-import com.big.movieomdb.ui.main.SearchMovie
+import com.big.movieomdb.ui.movielist.SearchMovieFragment
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, SearchMovie.newInstance())
+                    .replace(R.id.container, SearchMovieFragment.newInstance())
                     .commitNow()
         }
     }

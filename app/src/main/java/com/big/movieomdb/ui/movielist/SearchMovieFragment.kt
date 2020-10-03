@@ -1,4 +1,4 @@
-package com.big.movieomdb.ui.main
+package com.big.movieomdb.ui.movielist
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -8,17 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import com.big.movieomdb.R
 
-class SearchMovie : Fragment() {
+class SearchMovieFragment : Fragment() {
 
     companion object {
-        fun newInstance() = SearchMovie()
+        fun newInstance() = SearchMovieFragment()
     }
 
     private lateinit var viewModel: SearchMovieViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.movie_list_Fragment, container, false)
+        return inflater.inflate(R.layout.movie_list_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
