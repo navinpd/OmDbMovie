@@ -14,8 +14,7 @@ interface NetworkService {
     fun getMovieList(
         @Query(Endpoints.KEY_API_KEY) apiKey: String = Networking.API_VAL,
         @Query(Endpoints.KEY_QUERY) queryText: String,
-        @Query(Endpoints.PAGE_NUM) numOfResults: Int,
-        @Query(Endpoints.KEY_FORMAT) format: String = Endpoints.KEY_JSON_FORMAT
+        @Query(Endpoints.PAGE_NUM) numOfResults: Int
     ): Call<RootSearch>
     // {
     //  "Search": [

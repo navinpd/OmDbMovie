@@ -4,7 +4,7 @@ class RootSearch {
 
     var Search: List<Search>? = null
 
-    var totalResults: String? = null
+    var totalResults: Int? = null
 
     var Response: String? = null
 }

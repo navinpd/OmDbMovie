@@ -1,6 +1,5 @@
 package com.big.movieomdb.ui.detail
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -24,7 +23,7 @@ class MovieDetailFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         getDependencies()
-        return inflater.inflate(R.layout.movie_details_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_movie_details, container, false)
     }
 
 

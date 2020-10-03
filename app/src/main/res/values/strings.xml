@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MovieOmDb</string>
+
+
+    <string name="search_movies">Search Movies</string>
+    <string name="no_data_found">Click 🔍icon\nto get movie names</string>
+    <string name="you_clicked">You Clicked Position %1$d</string>
+    <string name="ok_button">OK</string>
 </resources>
