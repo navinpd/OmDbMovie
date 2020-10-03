@@ -1,7 +1,10 @@
 package com.big.movieomdb.ui.detail
 
-import androidx.lifecycle.ViewModel
+import android.content.SharedPreferences
+import javax.inject.Inject
 
-class MovieDetailViewModel : ViewModel() {
+class MovieDetailViewModel @Inject constructor(
+    private val sharedPreferences: SharedPreferences) {
+
     // TODO: Implement the ViewModel
 }

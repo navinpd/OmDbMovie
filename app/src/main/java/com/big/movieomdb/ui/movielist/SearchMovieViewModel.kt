@@ -1,7 +1,11 @@
 package com.big.movieomdb.ui.movielist
 
-import androidx.lifecycle.ViewModel
+import android.content.SharedPreferences
+import javax.inject.Inject
 
-class SearchMovieViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class SearchMovieViewModel @Inject constructor(
+    private val sharedPreferences: SharedPreferences) {
+
+
+
 }
