@@ -1,5 +1,6 @@
 package com.big.movieomdb.data.remote
 
+import com.big.movieomdb.BuildConfig
 import com.big.movieomdb.data.remote.response.moviedetail.MovieDetails
 import com.big.movieomdb.data.remote.response.searchresult.RootSearch
 import retrofit2.Call
@@ -10,7 +11,7 @@ interface NetworkService {
 
 
     // https://www.omdbapi.com/?apikey=b9bd48a6&s=Marvel&type=movie
-    @GET
+    @GET(BuildConfig.BASE_URL)
     fun getMovieList(
         @Query(Endpoints.KEY_API_KEY) apiKey: String = Networking.API_VAL,
         @Query(Endpoints.KEY_QUERY) queryText: String,
@@ -33,7 +34,7 @@ interface NetworkService {
 
 
     // https://www.omdbapi.com/?apikey=b9bd48a6&i=tt4154664
-    @GET
+    @GET(BuildConfig.BASE_URL)
     fun getMovieDetails(
         @Query(Endpoints.KEY_API_KEY) apiKey: String = Networking.API_VAL,
         @Query(Endpoints.IMDB_ID) queryText: String,

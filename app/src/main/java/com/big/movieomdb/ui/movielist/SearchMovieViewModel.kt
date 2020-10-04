@@ -5,15 +5,14 @@ import com.big.movieomdb.data.Repository
 import javax.inject.Inject
 
 class SearchMovieViewModel @Inject constructor(
-    private val sharedPreferences: SharedPreferences,
     private val repository: Repository
 ) {
 
-    fun getSearchResults() = repository.movieSearchResult
+    fun getSearchResults() = repository.mMovieSearchResult
 
 
     fun getSearchResult(query: String, pageNumber: Int) {
-        repository.getServerResponse(query, pageNumber)
+        repository.getMovieList(query, pageNumber)
     }
 
 }

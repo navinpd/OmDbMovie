@@ -1,10 +1,15 @@
 package com.big.movieomdb.ui.detail
 
-import android.content.SharedPreferences
+import com.big.movieomdb.data.Repository
 import javax.inject.Inject
 
 class MovieDetailViewModel @Inject constructor(
-    private val sharedPreferences: SharedPreferences) {
+    private val repository: Repository
+) {
+    fun getSearchResults() = repository.mMovieDetail
 
-    // TODO: Implement the ViewModel
+
+    fun getMovieDetails(info: String) {
+        repository.getMovieDetails(info)
+    }
 }
