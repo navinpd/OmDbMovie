@@ -1,14 +1,14 @@
 package com.big.movieomdb.data.remote.response.searchresult
 
-class Search {
+data class Search(
 
-    var Title: String? = null
+    val Title: String,
 
-    var Year: String? = null
+    val Year: String,
 
-    var imdbID: String? = null
+    val imdbID: String,
 
-    var Type: String? = null
+    val Type: String,
 
-    var Poster: String? = null
-}
+    val Poster: String
+)

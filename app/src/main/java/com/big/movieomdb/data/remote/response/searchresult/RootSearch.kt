@@ -1,10 +1,3 @@
 package com.big.movieomdb.data.remote.response.searchresult
 
-class RootSearch {
-
-    var Search: List<Search>? = null
-
-    var totalResults: Int? = null
-
-    var Response: String? = null
-}
+class RootSearch(val Search: List<Search>, val totalResults: Int, val Response: String)
