@@ -11,7 +11,9 @@ import javax.inject.Inject
 
 
 open class Repository @Inject constructor(private val networkService: NetworkService) {
-    private val TAG = "Repository"
+    companion object {
+        val TAG = "Repository"
+    }
     val mMovieSearchResult: MutableLiveData<RootSearch> = MutableLiveData()
     val mMovieDetail: MutableLiveData<MovieDetails> = MutableLiveData()
 
