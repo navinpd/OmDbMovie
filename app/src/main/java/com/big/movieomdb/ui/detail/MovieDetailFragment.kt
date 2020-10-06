@@ -8,25 +8,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import com.big.movieomdb.MyApplication
 import com.big.movieomdb.R
-import com.big.movieomdb.di.component.DaggerFragmentComponent
-import com.big.movieomdb.di.module.DetailsFragmentModule
+import com.big.movieomdb.ui.CommonViewModel
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_movie_details.*
 import javax.inject.Inject
 
+@AndroidEntryPoint
 open class MovieDetailFragment : Fragment() {
 
     @Inject
     lateinit var glide: RequestManager
 
     @Inject
-    lateinit var mViewModel: MovieDetailViewModel
+    lateinit var mViewModel: CommonViewModel
 
     companion object {
         const val TAG = "MovieDetailFragment"
@@ -45,7 +45,6 @@ open class MovieDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        getDependencies()
         val root = inflater.inflate(R.layout.fragment_movie_details, container, false)
 
         if (arguments != null) {
@@ -56,7 +55,7 @@ open class MovieDetailFragment : Fragment() {
             }
         }
 
-        mViewModel.getSearchResults().observe(viewLifecycleOwner, Observer {
+        mViewModel.getMovieDetails().observe(viewLifecycleOwner, Observer {
             director.text = "DIRECTOR: " + it.Director
             writer.text = "WRITER: " + it.Writer
             actor.text = "ACTORS: " + it.Actors
@@ -92,18 +91,6 @@ open class MovieDetailFragment : Fragment() {
                 }).into(poster_image)
         })
         return root
-    }
-
-    private fun getDependencies() {
-        DaggerFragmentComponent
-            .builder()
-            .applicationComponent(
-                (context!!
-                    .applicationContext as MyApplication).applicationComponent
-            )
-            .detailsFragmentModule(DetailsFragmentModule(this))
-            .build()
-            .injectDetails(this)
     }
 
 }

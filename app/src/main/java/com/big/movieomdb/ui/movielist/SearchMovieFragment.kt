@@ -14,16 +14,16 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.big.movieomdb.MyApplication
 import com.big.movieomdb.R
 import com.big.movieomdb.data.remote.response.searchresult.Search
-import com.big.movieomdb.di.component.DaggerFragmentComponent
-import com.big.movieomdb.di.module.SearchFragmentModule
+import com.big.movieomdb.ui.CommonViewModel
 import com.big.movieomdb.ui.MainActivity
 import com.bumptech.glide.RequestManager
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_movie_list.*
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class SearchMovieFragment : Fragment(), INextPage {
 
     companion object {
@@ -31,7 +31,7 @@ class SearchMovieFragment : Fragment(), INextPage {
     }
 
     @Inject
-    lateinit var mViewModel: SearchMovieViewModel
+    lateinit var mViewModel: CommonViewModel
 
     @Inject
     lateinit var mGlide: RequestManager
@@ -53,7 +53,6 @@ class SearchMovieFragment : Fragment(), INextPage {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getDependencies()
     }
 
 
@@ -134,18 +133,6 @@ class SearchMovieFragment : Fragment(), INextPage {
 
 //            search_sv.setQuery("", true)
         }
-
-    private fun getDependencies() {
-        DaggerFragmentComponent
-            .builder()
-            .applicationComponent(
-                (context!!
-                    .applicationContext as MyApplication).applicationComponent
-            )
-            .searchFragmentModule(SearchFragmentModule(this))
-            .build()
-            .injectSearch(this)
-    }
 
     override fun loadNextPage() {
         if (mPageNumber < totalPageCount) {
